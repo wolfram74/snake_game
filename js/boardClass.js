@@ -37,7 +37,7 @@ Board.prototype.difficulty = function(){
   // asymptote to 10?, start at, say 100
   // sigmoid 1/(1+e^x) asymptotes and is easily tuned
   var snakeLength = this.snake.body.length
-  var number = (195-185/(1+Math.exp(-snakeLength/4)))
+  var number = (195-185/(1+Math.exp(-snakeLength/10)))
   console.log(number)
   return number
 };
