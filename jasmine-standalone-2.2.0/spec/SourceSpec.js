@@ -36,3 +36,32 @@ describe("Snake", function(){
     expect(snake.velocity).toEqual([1,0])
   })
 })
+
+describe("Board", function(){
+  it("knows it's dimensions", function(){
+    var board = new Board({})
+    console.log(board)
+    expect(board.hasOwnProperty("width")).toEqual(true)
+    expect(board.hasOwnProperty("height")).toEqual(true)
+    expect(board.width).toEqual(30)
+    expect(board.height).toEqual(20)
+  });
+  it("keeps track of apple locations", function(){
+    var board = new Board()
+    expect(board.apples.length).toEqual(1)
+    board.placeApple()
+    expect(board.apples.length).toEqual(2)
+    board.placeApple([1,0])
+    expect(board.apples.length).toEqual(3)
+    expect(board.apples[2]).toEqual([1,0])
+  });
+  it("a snake can eat apples", function(){
+    var board = new Board()
+    board.placeApple([1,0])
+    var applesCount = board.apples.length
+    board.snake.timeStep()
+    expect(board.apples.length).not.toEqual(applesCount)
+    expect(board.snake.body.length).toEqual(1)
+  })
+
+})

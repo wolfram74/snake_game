@@ -18,7 +18,7 @@ Snake.prototype.course = function(key){
 
 Snake.prototype.directions = {
   W: function(){this.velocity = [0,1]},
-  A: function(){this.velocity = [-1,0];console.log(this)},
+  A: function(){this.velocity = [-1,0]},
   S: function(){this.velocity = [0,-1]},
   D: function(){this.velocity = [1,0]}
 }
