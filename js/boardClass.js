@@ -15,7 +15,7 @@ function Board (args){
 */  // debugger
   this.height =  20;
   this.width =  30;
-  this.snake = new Snake();
+  this.snake = new Snake({board: this});
   this.apples = [];
   this.placeApple() ;
 }
@@ -28,5 +28,4 @@ Board.prototype.placeApple = function(location){
     var y = Math.floor(Math.random()*this.height)
     this.apples.push([x,y])
   };
-
 }
