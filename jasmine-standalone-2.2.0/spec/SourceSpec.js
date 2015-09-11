@@ -15,4 +15,11 @@ describe("Snake", function(){
     expect(snake.hasOwnProperty("velocity")).toBe(true)
     expect(snake.hasOwnProperty("body")).toBe(true)
   })
+
+  it("should be able to move through space", function(){
+    var snake = new Snake()
+    var oldPosition = snake.position
+    snake.timeStep()
+    expect(oldPosition).not.toEqual(snake.position)
+  })
 })
