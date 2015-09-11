@@ -16,8 +16,18 @@ Snake.prototype.timeStep = function(){
   };
   if(!!this.board){this.appleCheck(this.nextPosition);};
   this.body.push(this.position);
-  if(!this.eat){this.body.shift();}
+  if(!this.eat){
+    this.body.shift(); 
+  } else{
+    this.board.placeApple();
+    this.board.timeChunk = this.board.difficulty();
+    console.log(this.body.length)
+    console.log(this.body)
+    // debugger
+    this.eat = false;
+  }
   this.position = this.nextPosition;
+  if(!!this.board){this.boardWrap()}
 };
 
 Snake.prototype.appleCheck = function(location){
@@ -57,3 +67,8 @@ Snake.prototype.directions = {
   S: function(){this.velocity = [0,-1]},
   D: function(){this.velocity = [1,0]}
 }
+
+Snake.prototype.boardWrap = function(){
+  this.position[0] = (this.position[0]+this.board.width)%this.board.width
+  this.position[1] = (this.position[1]+this.board.height)%this.board.height
+};

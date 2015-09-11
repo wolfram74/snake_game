@@ -1,0 +1,13 @@
+.sprite {
+  position: absolute;
+}
+
+.head {
+  background-color: #00ff00;
+}
+.body {
+  background-color: #00ff50;
+}
+.apple {
+  background-color: #ff0000;
+}
